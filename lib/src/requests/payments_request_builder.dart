@@ -38,7 +38,13 @@ class PaymentsRequestBuilder extends RequestBuilder {
     return this;
   }
 
-  // TODO: include transactions / join
+  /// Adds a parameter defining whether to include transaction information.
+  PaymentsRequestBuilder includeTransactions(bool value) {
+    if (value) {
+      queryParameters.addAll({"join": "transactions"});
+    }
+    return this;
+  }
 
   /// Requests specific uri and returns Page of OperationResponse.
   /// This method is helpful for getting the next set of results.

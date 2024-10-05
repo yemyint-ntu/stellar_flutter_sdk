@@ -79,7 +79,13 @@ class OperationsRequestBuilder extends RequestBuilder {
     return this;
   }
 
-  // TODO: includeTransactions / join
+  /// Adds a parameter defining whether to include transaction information.
+  OperationsRequestBuilder includeTransactions(bool value) {
+    if (value) {
+      queryParameters.addAll({"join": "transactions"});
+    }
+    return this;
+  }
 
   /// Requests specific <code>uri</code> and returns Page of OperationResponse.
   /// This method is helpful for getting the next set of results.
